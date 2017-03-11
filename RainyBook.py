@@ -6,17 +6,13 @@ import json
 import motor
 from tornado.gen import Return
 
-db = motor.motor_tornado.MotorClient().template
+db = motor.motor_tornado.MotorClient().rainybook
 
 
 
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
         self.render("index.html")
-
-
-
-
 
 
 application = tornado.web.Application(
@@ -28,5 +24,5 @@ application = tornado.web.Application(
 )
 
 if __name__ == "__main__":
-    application.listen(8081)
+    application.listen(8080)
     tornado.ioloop.IOLoop.current().start()
